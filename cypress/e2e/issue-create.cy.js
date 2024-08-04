@@ -164,7 +164,7 @@ function selectReporterBabyYoda() {
     cy.get('[data-testid="select-option:Baby Yoda"]').click();
   }
 
-  it.only('Should create new issue using the random data plugin and validate it successfully', () => {
+  it('Should create new issue using the random data plugin and validate it successfully', () => {
     cy.get('[data-testid="modal:issue-create"]').within(() => {
 
       cy.get('.ql-editor').type(randomWords);
