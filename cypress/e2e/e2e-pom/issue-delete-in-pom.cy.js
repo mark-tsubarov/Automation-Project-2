@@ -11,15 +11,22 @@ describe('Issue delete', () => {
   const issueTitle = 'This is an issue of type: Task.';
 
   it('Should delete issue successfully', () => {
+    const expectedAmountOfIssuesAfterDeletion = 3;
+
     IssueModal.clickDeleteButton();
     IssueModal.confirmDeletion();
     IssueModal.ensureIssueIsNotVisibleOnBoard(issueTitle);
+    IssueModal.validateAmountOfIssuesInBacklog(expectedAmountOfIssuesAfterDeletion);
   });
 
   it('Should cancel deletion process successfully', () => {
+    const expectedAmountOfIssuesAfterCancel = 4;
+
     IssueModal.clickDeleteButton();
     IssueModal.cancelDeletion();
     IssueModal.closeDetailModal();
     IssueModal.ensureIssueIsVisibleOnBoard(issueTitle);
+    IssueModal.validateAmountOfIssuesInBacklog(expectedAmountOfIssuesAfterCancel);
+    
   });
 });
